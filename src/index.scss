@@ -1,0 +1,20 @@
+// @use "./pages/suggestion/suggestionPage"; 
+//eliminar? estar observando
+//@import url('https://fonts.googleapis.com/css2?family=Jost:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.App{
+    // background-color: rgb(23, 22, 22);
+    background-color: #F2F2F2;
+    padding-bottom: 1rem;
+    min-width: 320px;
+    font-family: 'Jost', sans-serif;
+    
+
+    
+}

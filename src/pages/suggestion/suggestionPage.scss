@@ -1,0 +1,40 @@
+.SuggestionPage{
+    background-color: aliceblue;
+    padding-bottom: 2rem;
+    
+    .container{
+        // background-color: salmon;
+        // height: 500px;
+        .subMenu{
+            height: 56px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 24px 0 24px;
+            color: #ffffff;
+            background-color: #373f68;
+            .selectBox{
+                display: inline-block;
+            }
+            .btnAddFeedback{
+                height: 40px;
+                color:#F2F4FE;
+                background-color: #AD1FEA;
+            }
+
+        }
+    }
+}
+// medias
+// tablet
+@media only screen and (min-width:568px){
+
+}
+// desktop
+@media only screen and (min-width:1024px){
+    .SuggestionPage{
+        display: flex;
+        flex-direction: row;
+    }
+}

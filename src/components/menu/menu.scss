@@ -1,0 +1,47 @@
+
+// @mixin styleFont($theme: DarkGray) {
+//     background: $theme;
+//     box-shadow: 0 0 1px rgba($theme, .25);
+//     color: #fff;
+//   }
+//   @include styleFont($weight:);
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@700&display=swap');
+
+.Menu{
+    background-color: aqua;
+    
+    .header{
+        height: 72px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 24px 0 24px;
+        background-image: url("../../assets/suggestions/mobile/background-header.png");
+        background-size: cover;
+        background-position: center center;
+        font-family: 'Jost', sans-serif;
+        h1{
+           
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 22px;
+            letter-spacing: -0.33px;
+            line-height: 35px;
+            color: #FFFFFF;
+
+        }
+        h3{
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 26px;
+            letter-spacing: -0.25px;
+            color: #FFFFFF;
+            opacity: 0.75;
+        }
+
+    }
+    .subMenu{
+        display:none;
+    }
+}
