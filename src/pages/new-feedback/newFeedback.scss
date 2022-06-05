@@ -1,0 +1,15 @@
+
+
+
+.form__selectBox{
+    background-color: aqua;
+    .open{
+        visibility: visible;
+    }
+    .close{
+        visibility: hidden;
+    }
+    .categoryList{
+        background-color: coral;
+    }
+}

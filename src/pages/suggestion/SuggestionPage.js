@@ -1,19 +1,71 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 // assets
 import { ReactComponent as IconPlus } from "../../assets/shared/icon-plus.svg";
 import { ReactComponent as IconArrowDown } from "../../assets/shared/icon-arrow-down.svg";
-
 //components
 import Menu from "../../components/menu/Menu";
-import ProductRequest from "../../components/product-request/ProductRequest";
 
 import "./suggestionPage.scss";
 
-const SuggestionPage = () => {
+const SuggestionPage = ({ productRequests }) => {
   const navigate = useNavigate();
+  const [isSelectBoxOpen, setIsSelectBoxOpen] = useState(false);
+  const [sortType, setSortType] = useState("Most Upvotes");
+  const [suggestionRequests, setSuggestionRequests] = useState([]);
+
+  // const newArray = productRequests.filter(
+  //   (request) => request.status === "suggestion"
+  // );
+  const setState = () => {
+    const newArray = productRequests.filter(
+      (request) => request.status === "suggestion"
+    );
+    setSuggestionRequests(newArray);
+  };
+  useEffect(() => {
+    setState();
+  }, [productRequests]);
+  console.log(suggestionRequests);
+  //default order
+  // suggestionRequests.sort((a, b) => {
+  //   return b["upvotes"] - a["upvotes"];
+  // });
+
+  // go to newFeedback page
   const createNewFeedback = () => {
     navigate("/feedback");
+  };
+  const closeSelectBox = () => {
+    setIsSelectBoxOpen(false);
+  };
+  const orderByMostUpvotes = (e) => {
+    setSuggestionRequests(
+      suggestionRequests.sort((a, b) => b["upvotes"] - a["upvotes"])
+    );
+    setSortType(e.target.outerText);
+    closeSelectBox();
+  };
+  const orderByLeastUpvotes = (e) => {
+    setSuggestionRequests(
+      suggestionRequests.sort((a, b) => a["upvotes"] - b["upvotes"])
+    );
+    setSortType(e.target.outerText);
+    closeSelectBox();
+  };
+  const orderByMostComments = (e) => {
+    setSuggestionRequests(
+      suggestionRequests.sort((a, b) => b["comments"] - a["comments"])
+    );
+    setSortType(e.target.outerText);
+    closeSelectBox();
+  };
+  const orderByLestComments = (e) => {
+    setSuggestionRequests(
+      suggestionRequests.sort((a, b) => a["comments"] - b["comments"])
+    );
+    setSortType(e.target.outerText);
+    closeSelectBox();
   };
   return (
     <div className="SuggestionPage">
@@ -23,7 +75,16 @@ const SuggestionPage = () => {
           <div>
             Sort by:
             <div className="selectBox">
-              Most upvotes <IconArrowDown />
+              {sortType}
+              <IconArrowDown
+                onClick={() => setIsSelectBoxOpen(!isSelectBoxOpen)}
+              />
+              <ul className={`sortList ${isSelectBoxOpen ? "open" : "close"}`}>
+                <li onClick={(e) => orderByMostUpvotes(e)}>Most Upvotes</li>
+                <li onClick={(e) => orderByLeastUpvotes(e)}>Least Upvotes</li>
+                <li onClick={(e) => orderByMostComments(e)}>Most Comments</li>
+                <li onClick={(e) => orderByLestComments(e)}>Least Comments</li>
+              </ul>
             </div>
           </div>
           <button className="btnAddFeedback" onClick={createNewFeedback}>
@@ -31,7 +92,11 @@ const SuggestionPage = () => {
             Add Feedback
           </button>
         </div>
-        <ProductRequest />
+        <div className="requestList">
+          {suggestionRequests.map((request) => (
+            <li key={request.id}>{request.title}</li>
+          ))}
+        </div>
       </div>
     </div>
   );

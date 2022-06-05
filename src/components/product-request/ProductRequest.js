@@ -1,20 +1,13 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
 
 import "./productRequest.scss";
 
 const ProductRequest = () => {
-  const productRequest = useSelector((state) => state.productRequest);
-  const requestID = productRequest.map((elem) => {
-    return elem.id;
-  });
-  console.log(requestID);
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch()
-  // },[
+  // const requestID = productRequest.map((elem) => {
+  //   return elem.id;
+  // });
+  // console.log(requestID);
 
-  // ]);
   // filter request with suggestion state
   const requestSuggestionStatus = productRequest.filter(
     (request) => request.status === "suggestion"

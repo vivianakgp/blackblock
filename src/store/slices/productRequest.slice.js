@@ -1,14 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
+// file JSON
+const Data = require("../../data.json");
 
-const data = JSON.parse(localStorage.getItem("data"));
 export const requestSlice = createSlice({
-  name: "productRequest",
-  initialState: data.productRequests,
+  name: "productRequests",
+  initialState: Data.productRequests,
   reducers: {
-    //   filterstatus:(state)=>{
-    //       return  state.filter((request) => request.status === "suggestion");
-    //   },
+    setEspecificValue: (state, action) => {
+      // Recibimos la accion por parámetros
+      return action.payload; // Colocamos la propiedad payload
+    },
   },
 });
-// export const { filterstatus } = requestSlice.actions
+export const { setEspecificValue } = requestSlice.actions;
 export default requestSlice.reducer;

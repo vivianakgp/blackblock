@@ -13,7 +13,6 @@ const Menu = () => {
           <h3>Feedback Board</h3>
         </div>
         <div>
-          {/* renderizar un icono svg */}
           <img src={iconHamburger} alt="burgerIcon"></img>
         </div>
       </div>

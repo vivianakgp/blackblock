@@ -16,6 +16,20 @@
             background-color: #373f68;
             .selectBox{
                 display: inline-block;
+                position: relative;
+                .open{
+                    // visibility: visible;
+                    display: block;
+                }
+                .close{
+                    // visibility: hidden;
+                    display: none;
+                }
+                .sortList{
+                    background-color: #d2a7e4;
+                    position: absolute;
+                    
+                }
             }
             .btnAddFeedback{
                 height: 40px;
