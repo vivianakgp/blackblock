@@ -45,7 +45,7 @@ This project is still under construction and features are yet to be added.
 - Update and delete product feedback requests
 - Add comments and replies to a product feedback request
 - Upvote product feedback requests
-- Add Editing feedback page
+- Add Editing feedback and RoadMap page
 - Create an empty page
 
 ###### Planned changes

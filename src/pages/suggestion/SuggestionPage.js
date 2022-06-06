@@ -97,6 +97,7 @@ const SuggestionPage = ({ productRequests }) => {
                 src={`${isSelectBoxOpen ? iconArrowUp : iconArrowDown}`}
                 style={{ marginLeft: "5px" }}
                 onClick={() => setIsSelectBoxOpen(!isSelectBoxOpen)}
+                alt="iconUpDown"
               ></img>
               <ul className={`sortList ${isSelectBoxOpen ? "open" : "close"}`}>
                 <li onClick={(e) => orderByMostUpvotes(e)}>Most Upvotes</li>
