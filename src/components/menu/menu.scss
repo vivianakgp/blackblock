@@ -9,13 +9,12 @@
 %sizes-shared{
     width: 280px;
     min-height: 178px;
-    border-radius: 6.5px;
+    border-radius: 12px;
     padding: 10px;
     background-color: rgba(255, 255, 255, 1);
-
 }
+
 .Menu{
-    background-color: rgb(226, 239, 149);
     
     .header{
         height: 72px;
@@ -31,7 +30,7 @@
         font-family: 'Jost', sans-serif;
         h1{
            
-            font-weight: 500;
+            font-weight: 700;
             font-size: 24px;
             line-height: 22px;
             letter-spacing: -0.33px;
@@ -40,7 +39,7 @@
 
         }
         h3{
-            font-weight: 400;
+            font-weight: 500;
             font-size: 18px;
             line-height: 26px;
             letter-spacing: -0.25px;
@@ -85,4 +84,93 @@
         margin: auto;
     }
     }
+}
+
+// medias
+// tablet
+@media only screen and (min-width:668px){
+    .Menu{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 180px;
+        // background-color: blueviolet;
+        margin-bottom: 24px;
+        .header{
+            align-items: flex-end;
+            min-height: 178px;
+            width: 30%;
+            padding-bottom: 24px;
+            border-radius: 12px;
+            background-image: url("../../assets/suggestions/tablet/background-header.png");
+
+            >div:nth-child(2){
+                display: none;
+            }
+
+        }
+        .subMenu{
+            position: initial;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 70%;
+            padding: 0 5px;
+            background-color: transparent;
+            .filterByCategory{
+                width: 45%;
+                padding: auto;
+                >span{
+                    display: inline-block;
+                    padding: 6px 12px;
+                    margin:5px;
+                    border-radius: 6.5px;
+                    color:rgba(70, 97, 230, 1);
+                    background-color: rgba(242, 244, 255, 1);
+            
+                }
+
+            }
+            .roadMap{
+                width: 45%;
+                padding: auto 5px;
+            }
+        }
+
+    }
+
+}
+// desktop
+@media only screen and (min-width:1024px){
+    .Menu{
+        flex-direction: column;
+        width: 25%;
+        height: auto;
+        overflow-y: hidden;
+        .header{
+            width: 100%;
+
+
+        }
+        .subMenu{
+            flex-direction: column;
+            width: 100%;
+            .filterByCategory{
+                width: 95%;
+                padding: 16px 6px;
+                >span{
+                    padding: 8px 18px;
+                    margin: 10px;
+                }
+            
+            }
+            .roadMap{
+            width: 95%;
+
+
+            }
+
+        }
+    }
+    
 }

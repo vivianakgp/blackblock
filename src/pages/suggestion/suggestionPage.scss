@@ -1,6 +1,5 @@
 .SuggestionPage{
-    background-color: aliceblue;
-    padding-bottom: 2rem;
+    padding-bottom: 25px;
     
     .container{
         // background-color: salmon;
@@ -12,11 +11,17 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 24px 0 24px;
+            font-size: 13px;
             color: #ffffff;
             background-color: #373f68;
+            .qtySuggestions{
+                display: none;
+            }
             .selectBox{
                 display: inline-block;
                 position: relative;
+                padding: 0 6px;
+                font-weight: 700;
                 .open{
                     // visibility: visible;
                     display: block;
@@ -26,23 +31,141 @@
                     display: none;
                 }
                 .sortList{
-                    background-color: #d2a7e4;
                     position: absolute;
-                    
+                    min-width: 155px;
+                    // height: 192px;
+                    top: 39px;
+                    border-radius: 10px;
+                    box-shadow: 0px 10px 40px -7px rgba(55, 63, 104, 0.350492);
+                    background-color:  #FFFFFF;
+
+                }
+                .sortList > li{
+                    list-style: none;
+                    color:rgba(100, 113, 150, 1);
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 23px;
+                    padding: 12px 0px 12px 12px;
+                    border-bottom: 1px solid rgba(58, 67, 116, 0.5);
+                }
+                .sortList > li:nth-last-child(1){
+                    border-bottom: none;
+
+                }
+                .sortList > li:hover{
+                    color: rgba(173, 31, 234, 1);
+
                 }
             }
             .btnAddFeedback{
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 height: 40px;
+                width: 134px;
+                font-weight: 700;
                 color:#F2F4FE;
+                border-style: none;
+                border-radius: 6.5px;
                 background-color: #AD1FEA;
             }
-
+        }
+        .requestList{
+            padding: 0 24px;
+            .productRequest{
+                padding: 24px;
+                margin: 16px auto;
+                background: #FFFFFF;
+                border-radius: 10px;
+                >h4{
+                    font-weight: 700;
+                    font-size: 13px;
+                    line-height: 19px;
+                    letter-spacing: -0.18px;
+                    color: #3A4374;
+                }
+                >p{
+                    margin: 9px 0;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 13px;
+                    line-height: 19px;
+                    color: #647196;
+                }
+                >span{
+                    padding: 6px 16px;
+                    display: inline-block;
+                    margin-bottom: 10px;
+                    background: #F2F4FF;
+                    border-radius: 10px;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 13px;
+                    line-height: 19px;
+                    color: #4661E6;
+                }
+                >div{
+                    display: flex;
+                    justify-content: space-between;
+                    >span{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 6px 15px;
+                        border-radius: 10px;
+                        font-weight: 700;
+                        font-size: 13px;
+                        color: rgba(58, 67, 116, 1);
+                        background: #F2F4FE;
+                    }
+                    >span:nth-child(1):hover{
+                        background-color: rgba(207, 215, 255, 1);
+                    }
+                    >span:nth-child(2){
+                        background: transparent;
+                    }
+                }
+            }
         }
     }
 }
 // medias
 // tablet
-@media only screen and (min-width:568px){
+@media only screen and (min-width:668px){
+    .SuggestionPage{
+        .container{
+            .subMenu{
+                height: 72px;
+                border-radius: 10px;
+                .qtySuggestions{
+                    display: inline-block;
+                    margin-right:15px ;
+                    font-weight: 700;
+                    font-size: 18px;
+                    line-height: 26px;
+                    letter-spacing: -0.25px;
+                    color: #FFFFFF;
+                }
+                .selectBox{
+                    font-size: 14px;
+                    line-height: 20px;
+                    .sortList{
+                        min-width: 200px;
+                        top: 45px;
+                    }
+                }
+                .btnAddFeedback{
+                    width: 158px;
+                }
+
+
+            }
+            .requestList{
+
+            }
+        }
+    }
 
 }
 // desktop
@@ -50,5 +173,9 @@
     .SuggestionPage{
         display: flex;
         flex-direction: row;
+        .container{
+            width: 70%;
+            margin: 0 auto;
+        }
     }
 }

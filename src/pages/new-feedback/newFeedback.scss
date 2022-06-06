@@ -1,15 +1,201 @@
-
-
-
-.form__selectBox{
-    background-color: aqua;
-    .open{
-        visibility: visible;
-    }
-    .close{
-        visibility: hidden;
-    }
-    .categoryList{
-        background-color: coral;
-    }
+%shared-label{
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: -0.180556px;
+    color: #3A4374;
 }
+%shared-button{
+    width: 100%;
+    height: 40px;
+    margin-top: 18px;
+    border-style: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 19px;
+    text-align: center;
+    color: #F2F4FE;
+
+}
+.NewFeedback{
+    padding: 24px;
+    >button{
+        height: 40px;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 20px;
+        color: #647196;
+        border-style: none;
+        background-color: transparent;
+    }
+    >button:hover{
+        text-decoration: underline;
+    }
+    .form{
+        border-radius: 10px;
+        padding: 12px 24px 50px 24px;
+        min-width: 200px;
+        max-width: 540px;
+        margin: 45px auto 0 auto;
+        background: #FFFFFF;
+
+        .iconPlus{
+            position: relative;
+            top: -40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: radial-gradient(128.88% 128.88% at 103.9% -10.39%, #E84D70 0%, #A337F6 53.09%, #28A7ED 100%);
+        }
+        >h2{
+            margin-bottom: 34px;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 26px;
+            letter-spacing: -0.25px;
+            color: #3A4374;
+        }
+        > div >label{
+            @extend %shared-label;
+
+        }
+        > div >p{
+            margin-bottom: 14px;
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 19px;
+            color: #647196;
+        }
+        > div >input{
+            height: 48px;
+            width: 100%;
+            border-style: none;
+            background: #F7F8FD;
+            border-radius: 5px;
+            padding: 24px;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 22px;
+            color: #3A4374;
+
+        }
+        >div>input[id="description"]{
+            min-height: 200px;
+            margin-bottom: 24px
+            
+        }
+        .divSelectBox{
+            >h4{
+                @extend %shared-label;
+            }
+            .selectBox{
+                position: relative;
+                height: 48px;
+                width: 100%;
+                padding: 15px 24px;
+                margin-bottom: 14px;
+                border-style: none;
+                background: #F7F8FD;
+                border-radius: 5px;
+                font-weight: 400;
+                font-size: 15px;
+                line-height: 19px;
+                color: #3A4374;
+                .open{
+                    display: block;
+                }
+                .close{
+                    display: none;
+                }
+                >div{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                .categoryList{
+                    position: absolute;
+                    z-index: 100;
+                    top: 50px;
+                    left: 0;
+                    list-style: none;
+                    width: 200px;
+                    border-radius: 10px;
+                    box-shadow: 0px 10px 40px -7px rgba(55, 63, 104, 0.350492);
+                    background-color:  #FFFFFF;
+                    >li{
+                        font-weight: 400;
+                        font-size: 15px;
+                        line-height: 23px;
+                        padding: 12px 0px 12px 20px;
+                        border-bottom: 1px solid rgba(58, 67, 116, 0.5);
+                    }
+                    > li:nth-last-child(1){
+                        border-bottom: none;
+    
+                    }
+                    > li:hover{
+                        color: rgba(173, 31, 234, 1);
+    
+                    }
+                }
+            }
+        }
+        .containerBtn{
+            >button[type="submit"]{
+                @extend %shared-button;
+                background: #AD1FEA;
+        
+            }
+           >span.cancelBtn{
+                @extend %shared-button;
+                background: #3A4374;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+        }
+
+
+    }
+
+}
+
+
+
+// medias
+// tablet
+@media only screen and (min-width:668px){
+    .NewFeedback{
+        .form{
+            .containerBtn{
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: flex-start;
+                align-items: center;
+                >button[type="submit"]{
+                    display: inline-block;
+                    width: 144px;
+                    
+            
+                }
+                >span.cancelBtn{
+                    width: 93px;
+                    margin-right: 14px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                }
+
+            }
+        }
+    }
+
+}
+

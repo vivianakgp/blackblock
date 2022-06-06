@@ -1,17 +1,25 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+//  assets
 import { ReactComponent as IconArrowDown } from "../../assets/shared/icon-arrow-down.svg";
+import { ReactComponent as IconPlus } from "../../assets/shared/icon-plus.svg";
+import { ReactComponent as IconArrowLeft } from "../../assets/shared/icon-arrow-left.svg";
 
 import "./newFeedback.scss";
 
 const NewFeedback = ({ productRequests, changeState }) => {
+  const navigate = useNavigate();
+
   // states
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("feature");
   const [description, setDescription] = useState("");
   const [isSelectBoxOpen, setIsSelectBoxOpen] = useState(false);
 
+  const saveLocalStorage = () => {
+    localStorage.setItem("productRequests", JSON.stringify(productRequests));
+  };
   useEffect(() => {
-    console.log(productRequests);
     saveLocalStorage();
   }, [productRequests]);
   // extract ids from productRequest
@@ -35,33 +43,40 @@ const NewFeedback = ({ productRequests, changeState }) => {
     setDescription("");
   };
   const addNewRequestToState = (newRequest) => {
-    //changeState(newRequest);
     changeState([...productRequests, newRequest]);
   };
-  const saveLocalStorage = () => {
-    localStorage.setItem("productRequests", JSON.stringify(productRequests));
-  };
+
   const submit = (e) => {
     e.preventDefault();
     const request = {
-      id: generateId(),
-      title,
       category,
+      // comments: [],
       description,
-      upvotes: 0,
+      id: generateId(),
       status: "suggestion",
+      title,
+      upvotes: 0,
     };
-    // console.log(request);
     addNewRequestToState(request);
     cleanForm();
   };
-  // console.log(productRequests);
+  // go to suggestion page
+  const goBack = () => {
+    navigate(-1);
+  };
   return (
-    <div>
-      soy la pagina del new feedback
-      <form className="newFeedbackForm" onSubmit={submit}>
+    <div className="NewFeedback">
+      <button onClick={goBack}>
+        <IconArrowLeft style={{ marginRight: "8px" }} /> Go Back
+      </button>
+      <form className="form" onSubmit={submit}>
+        <span className="iconPlus">
+          <IconPlus />
+        </span>
+        <h2>Create New Feedback</h2>
         <div>
           <label htmlform="email">Feedback Title</label>
+          <p>Add a short, descriptive headline</p>
           <input
             type="text"
             id="title"
@@ -71,13 +86,16 @@ const NewFeedback = ({ productRequests, changeState }) => {
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
-        <div>
-          <p>Ctegory</p>
-          <div className="form__selectBox">
-            {category}
-            <IconArrowDown
-              onClick={() => setIsSelectBoxOpen(!isSelectBoxOpen)}
-            />
+        <div className="divSelectBox">
+          <h4>Category</h4>
+          <p>Choose a category for your feedback</p>
+          <div className="selectBox">
+            <div>
+              <p>{category}</p>
+              <IconArrowDown
+                onClick={() => setIsSelectBoxOpen(!isSelectBoxOpen)}
+              />
+            </div>
             <ul
               className={`categoryList ${isSelectBoxOpen ? "open" : "close"}`}
             >
@@ -91,6 +109,10 @@ const NewFeedback = ({ productRequests, changeState }) => {
         </div>
         <div>
           <label htmlform="pass">Feedback Detail</label>
+          <p>
+            Include any specific comments on what should be improved, added,
+            etc.
+          </p>
           <input
             type="text"
             id="description"
@@ -101,11 +123,15 @@ const NewFeedback = ({ productRequests, changeState }) => {
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
-        <button className="addFeedbackBtn">Add Feedback</button>
+        <div className="containerBtn">
+          <button type="submit" className="addFeedbackBtn">
+            Add Feedback
+          </button>
+          <span className="cancelBtn" onClick={cleanForm}>
+            Cancel
+          </span>
+        </div>
       </form>
-      <button className="cancelBtn" onClick={cleanForm}>
-        Cancel
-      </button>
     </div>
   );
 };

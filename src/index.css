@@ -4,12 +4,20 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+body{
+  background-color: aliceblue;
+}
 .App {
-  background-color: #F2F2F2;
+  /* background-color: aliceblue; */
   padding-bottom: 1rem;
   min-width: 320px;
   font-family: "Jost", sans-serif;
+}
+
+@media only screen and (min-width:668px){
+  .App{
+    padding: 53px 43px;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import { HashRouter, Routes, Route } from "react-router-dom";
 //pages
 import SuggestionPage from "./pages/suggestion/SuggestionPage";
@@ -9,6 +8,8 @@ const Data = require("./data.json");
 
 function App() {
   const [productRequests, setProductRequests] = useState([]);
+  //console.log(productRequests);
+  // test line 14(=== null), causes an err when refresh newFeedback page
   const setState = () => {
     if (JSON.parse(localStorage.getItem("productRequests")) === null) {
       setProductRequests(Data.productRequests);
@@ -19,11 +20,11 @@ function App() {
   useEffect(() => {
     setState();
   }, []);
+
   // changeState as a prop in new feedback page
   const changeState = (newvalue) => {
     setProductRequests(newvalue);
   };
-  console.log(productRequests);
 
   return (
     <div className="App">

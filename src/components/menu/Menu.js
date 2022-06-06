@@ -4,12 +4,13 @@ import iconClose from "../../assets/shared/mobile/icon-close.svg";
 import iconHamburger from "../../assets/shared/mobile/icon-hamburger.svg";
 
 import "./menu.scss";
+
 const Menu = ({ filterByCategory, setState }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
-
   const fn = (category) => {
     filterByCategory(category);
     closeMenu();
@@ -45,12 +46,10 @@ const Menu = ({ filterByCategory, setState }) => {
           <span onClick={() => fn("bug")}>Bug</span>
           <span onClick={() => fn("feature")}>Feature</span>
         </div>
-        <div className="roadMap">RoadMap</div>
+        <div className="roadMap"></div>
       </div>
     </div>
   );
 };
 
 export default Menu;
-// "suggestion" , 'enhancement' , 'feature'
-// 'bug'  'UI' 'UX'
