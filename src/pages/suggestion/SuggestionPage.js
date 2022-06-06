@@ -13,25 +13,32 @@ const SuggestionPage = ({ productRequests }) => {
   const [isSelectBoxOpen, setIsSelectBoxOpen] = useState(false);
   const [sortType, setSortType] = useState("Most Upvotes");
   const [suggestionRequests, setSuggestionRequests] = useState([]);
-
-  // const newArray = productRequests.filter(
-  //   (request) => request.status === "suggestion"
-  // );
+  const filterStatus = () => {
+    return productRequests.filter((request) => request.status === "suggestion");
+  };
   const setState = () => {
-    const newArray = productRequests.filter(
-      (request) => request.status === "suggestion"
-    );
-    setSuggestionRequests(newArray);
+    // const newArraySuggestionStatus = productRequests.filter(
+    //   (request) => request.status === "suggestion"
+    //);
+    const newArraySuggestionStatus = filterStatus();
+    setSuggestionRequests(newArraySuggestionStatus);
   };
   useEffect(() => {
     setState();
   }, [productRequests]);
-  console.log(suggestionRequests);
+  console.log(suggestionRequests); //agregar no found
   //default order
   // suggestionRequests.sort((a, b) => {
   //   return b["upvotes"] - a["upvotes"];
   // });
-
+  const filterByCategory = (category) => {
+    // setear al estado inicial
+    const newArraySuggestionStatus = filterStatus();
+    const newArrayByCategory = newArraySuggestionStatus.filter(
+      (request) => request.category === category
+    );
+    setSuggestionRequests(newArrayByCategory);
+  };
   // go to newFeedback page
   const createNewFeedback = () => {
     navigate("/feedback");
@@ -69,7 +76,7 @@ const SuggestionPage = ({ productRequests }) => {
   };
   return (
     <div className="SuggestionPage">
-      <Menu />
+      <Menu filterByCategory={filterByCategory} setState={setState} />
       <div className="container">
         <div className="subMenu">
           <div>

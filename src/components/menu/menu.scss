@@ -6,12 +6,20 @@
 //   }
 //   @include styleFont($weight:);
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@700&display=swap');
+%sizes-shared{
+    width: 280px;
+    min-height: 178px;
+    border-radius: 6.5px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 1);
 
+}
 .Menu{
-    background-color: aqua;
+    background-color: rgb(226, 239, 149);
     
     .header{
         height: 72px;
+        position: relative;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -41,7 +49,40 @@
         }
 
     }
+    .open{
+        display: block;
+    }
+    .close{
+        display: none;
+    }
     .subMenu{
-        display:none;
+    position: absolute;
+    top: 72px;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    min-width: 320px;
+    text-align: center;
+    background-color:rgba(247, 248, 253, 1);
+    .filterByCategory{
+        @extend %sizes-shared;
+        margin:25px auto;
+        >span{
+            display: inline-block;
+            padding: 10px 16px;
+            margin:8px;
+            border-radius: 6.5px;
+            color:rgba(70, 97, 230, 1);
+            background-color: rgba(242, 244, 255, 1);
+    
+        }
+        >span:hover{
+            background-color:rgba(207, 215, 255, 1);
+        }
+    }
+    .roadMap{
+        @extend %sizes-shared;
+        margin: auto;
+    }
     }
 }
