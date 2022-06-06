@@ -30,6 +30,7 @@ const SuggestionPage = ({ productRequests }) => {
   useEffect(() => {
     setState();
     setQuantitySuggestion(filterStatus().length);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productRequests]);
 
   //default order

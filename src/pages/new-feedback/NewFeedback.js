@@ -21,6 +21,7 @@ const NewFeedback = ({ productRequests, changeState }) => {
   };
   useEffect(() => {
     saveLocalStorage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productRequests]);
   // extract ids from productRequest
   const getRequestIds = () => {
